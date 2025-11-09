@@ -87,16 +87,3 @@ Translation: MBart50 (HuggingFace Transformers)
 AI Assistant: Mistral API (mistral-small-latest)
 
 Data Handling: Pandas, NumPy
-
-🔹 File Structure
-football-news-assistant/
-│
-├─ app.py # Flask backend
-├─ mistral_helper.py # News fetching, embeddings, RAG response generation
-├─ requirements.txt # Python dependencies
-├─ templates/
-│ └─ index.html # Frontend HTML
-├─ static/
-│ ├─ style.css # Frontend CSS
-│ └─ script.js # Frontend JS
-└─ README.md

@@ -1,12 +1,13 @@
 ⚽ Football News Assistant
 
-A smart, multilingual football news assistant that retrieves the latest football news, summarizes articles, and answers user questions in natural language. It supports translation, semantic search, and real-time responses using modern NLP and AI tools.
+A smart, multilingual football news assistant that retrieves the latest football news, summarizes articles, and answers user questions in natural language.
+Supports translation, semantic search, and real-time responses using modern NLP and AI tools.
 
 🔹 Features
 
-Retrieve football news from multiple leagues: Premier League, La Liga, Serie A, Bundesliga, Ligue 1, Champions League.
+Retrieve football news from major leagues: Premier League, La Liga, Serie A, Bundesliga, Ligue 1, Champions League.
 
-Semantic search using embeddings (SentenceTransformer + FAISS) to find relevant articles.
+Semantic search using SentenceTransformer + FAISS to find relevant articles.
 
 Summarize and answer questions using Mistral AI.
 
@@ -16,53 +17,64 @@ Sources displayed in bold for clarity.
 
 Interactive web interface with live chat.
 
-Loading spinner ⚽ while the assistant is processing a request.
+⚽ Loading spinner while processing requests.
 
-🔹 RAG (Retrieval-Augmented Generation)
+🔹 RAG (Retrieval-Augmented Generation) Pipeline
 
-This project implements a RAG pipeline:
+The assistant implements a RAG pipeline combining retrieval and generation:
 
-Retrieval (R)
+1️⃣ Retrieval (R)
 
-News articles are fetched from NewsAPI.
+Fetch news articles from NewsAPI.
 
-Articles are converted into embeddings using SentenceTransformer.
+Convert articles into embeddings with SentenceTransformer.
 
-FAISS index stores embeddings for fast similarity search.
+Store embeddings in a FAISS index for fast similarity search.
 
-User queries are encoded and the most relevant articles are retrieved.
+Encode the user query and retrieve the most relevant articles.
 
-Augmented Generation (AG)
+2️⃣ Augmented Generation (AG)
 
-Retrieved articles are formatted into a context prompt for the AI model.
+Format retrieved articles as context for the AI model.
 
-Mistral generates a factual, concise answer based on the retrieved articles.
+Mistral generates a concise, factual answer.
 
-If the query is in another language, translation is applied automatically.
+If the query is not in English, it is translated automatically to English before retrieval.
 
-Output
+3️⃣ Output
 
-The assistant returns the answer to the frontend with sources.
+The generated answer is translated back (if needed) to the user’s language.
 
-🔹 Diagram of the RAG pipeline:
+Sources are displayed in bold.
 
-User Query
-↓
-Language Detection
-↓
-Translate → English
-↓
-Embed with SentenceTransformer
-↓
+The ⚽ spinner is shown while the assistant is generating a response.
+
+🔹 RAG Pipeline Diagram
+User Query (any language)
+        │
+        ▼
+Detect Language
+        │
+        ▼
+Translate → English (if needed)
+        │
+        ▼
+Embed Query with SentenceTransformer
+        │
+        ▼
 FAISS Vector Search
-↓
+        │
+        ▼
 Retrieve Top Articles
-↓
+        │
+        ▼
 Mistral Generates Summary
-↓
-Translate → User Language
-↓
-Display in Interface
+        │
+        ▼
+Translate → User Language (if needed)
+        │
+        ▼
+Display in Interface (sources in bold, ⚽ spinner while loading)
 
 🔹 Tech Stack
 
@@ -74,11 +86,9 @@ News Retrieval: NewsAPI
 
 NLP & Embeddings:
 
-SentenceTransformer
-(all-MiniLM-L6-v2)
+SentenceTransformer (all-MiniLM-L6-v2)
 
-FAISS
-for vector search
+FAISS for vector search
 
 Language Detection: langdetect
 
@@ -87,3 +97,16 @@ Translation: MBart50 (HuggingFace Transformers)
 AI Assistant: Mistral API (mistral-small-latest)
 
 Data Handling: Pandas, NumPy
+
+🔹 File Structure
+football-news-assistant/
+│
+├─ app.py                 # Flask backend
+├─ mistral_helper.py      # News fetching, embeddings, RAG response generation
+├─ requirements.txt       # Python dependencies
+├─ templates/
+│   └─ index.html         # Frontend HTML
+├─ static/
+│   ├─ style.css          # Frontend CSS
+│   └─ script.js          # Frontend JS
+└─ README.md

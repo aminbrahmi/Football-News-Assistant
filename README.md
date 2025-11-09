@@ -50,31 +50,15 @@ Sources are displayed in bold.
 The ⚽ spinner is shown while the assistant is generating a response.
 
 🔹 RAG Pipeline Diagram
-User Query (any language)
-        │
-        ▼
-Detect Language
-        │
-        ▼
-Translate → English (if needed)
-        │
-        ▼
-Embed Query with SentenceTransformer
-        │
-        ▼
-FAISS Vector Search
-        │
-        ▼
-Retrieve Top Articles
-        │
-        ▼
-Mistral Generates Summary
-        │
-        ▼
-Translate → User Language (if needed)
-        │
-        ▼
-Display in Interface (sources in bold, ⚽ spinner while loading)
+1.User Query (any language)
+2.Language Detection
+3.Translation to English (if needed)
+4.Embed Query with SentenceTransformer
+5.FAISS Vector Search
+6.Retrieve Top Articles
+7.Mistral Generates Summary
+8.Translation to User Language (if needed)
+9.Display Response with sources in bold
 
 🔹 Tech Stack
 

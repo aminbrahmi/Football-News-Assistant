@@ -51,13 +51,21 @@ The ⚽ spinner is shown while the assistant is generating a response.
 
 🔹 RAG Pipeline Diagram
 1.User Query (any language)
+
 2.Language Detection
+
 3.Translation to English (if needed)
+
 4.Embed Query with SentenceTransformer
+
 5.FAISS Vector Search
+
 6.Retrieve Top Articles
+
 7.Mistral Generates Summary
+
 8.Translation to User Language (if needed)
+
 9.Display Response with sources in bold
 
 🔹 Tech Stack

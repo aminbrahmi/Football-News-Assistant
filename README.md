@@ -83,14 +83,4 @@ AI Assistant: Mistral API (mistral-small-latest)
 Data Handling: Pandas, NumPy
 
 🔹 File Structure
-football-news-assistant/
-│
-├─ app.py                 # Flask backend
-├─ mistral_helper.py      # News fetching, embeddings, RAG response generation
-├─ requirements.txt       # Python dependencies
-├─ templates/
-│   └─ index.html         # Frontend HTML
-├─ static/
-│   ├─ style.css          # Frontend CSS
-│   └─ script.js          # Frontend JS
-└─ README.md
+<img width="776" height="312" alt="Capture d’écran 2025-11-09 030601" src="https://github.com/user-attachments/assets/00b2dc69-7aea-4f76-b5da-7e9627dcdfcb" />

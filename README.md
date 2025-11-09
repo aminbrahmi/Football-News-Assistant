@@ -55,50 +55,41 @@ The ⚽ spinner is shown while the assistant is generating a response.
 User Query (any language)
 
         │
-
-
         ▼
 
 Detect Language
 
         │
-
         ▼
 
 Translate → English (if needed)
 
         │
-
         ▼
 
 Embed Query with SentenceTransformer
 
         │
-
         ▼
 
 FAISS Vector Search
 
         │
-
         ▼
 
 Retrieve Top Articles
 
         │
-
         ▼
 
 Mistral Generates Summary
 
         │
-
         ▼
 
 Translate → User Language (if needed)
 
         │
-
         ▼
 
 Display in Interface 
@@ -132,21 +123,20 @@ Data Handling: Pandas, NumPy
 football-news-assistant/
 
 │
-
 ├─ app.py                 # Flask backend
-
+│
 ├─ mistral_helper.py      # News fetching, embeddings, RAG response generation
-
+│
 ├─ requirements.txt       # Python dependencies
-
+│
 ├─ templates/
-
+│   │
 │   └─ index.html         # Frontend HTML
-
+│
 ├─ static/
-
+│
 │   ├─ style.css          # Frontend CSS
-
+│   │
 │   └─ script.js          # Frontend JS
-
+│
 └─ README.md

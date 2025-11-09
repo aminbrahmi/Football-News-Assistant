@@ -50,23 +50,59 @@ Sources are displayed in bold.
 The ⚽ spinner is shown while the assistant is generating a response.
 
 🔹 RAG Pipeline Diagram
-1.User Query (any language)
 
-2.Language Detection
 
-3.Translation to English (if needed)
+User Query (any language)
 
-4.Embed Query with SentenceTransformer
+        │
 
-5.FAISS Vector Search
 
-6.Retrieve Top Articles
+        ▼
 
-7.Mistral Generates Summary
+Detect Language
 
-8.Translation to User Language (if needed)
+        │
 
-9.Display Response with sources in bold
+        ▼
+
+Translate → English (if needed)
+
+        │
+
+        ▼
+
+Embed Query with SentenceTransformer
+
+        │
+
+        ▼
+
+FAISS Vector Search
+
+        │
+
+        ▼
+
+Retrieve Top Articles
+
+        │
+
+        ▼
+
+Mistral Generates Summary
+
+        │
+
+        ▼
+
+Translate → User Language (if needed)
+
+        │
+
+        ▼
+
+Display in Interface 
+
 
 🔹 Tech Stack
 
@@ -90,6 +126,27 @@ AI Assistant: Mistral API (mistral-small-latest)
 
 Data Handling: Pandas, NumPy
 
-🔹 Project Structure
+🔹 File Structure
 
-<img width="776" height="312" alt="Capture d’écran 2025-11-09 030601" src="https://github.com/user-attachments/assets/00b2dc69-7aea-4f76-b5da-7e9627dcdfcb" />
+
+football-news-assistant/
+
+│
+
+├─ app.py                 # Flask backend
+
+├─ mistral_helper.py      # News fetching, embeddings, RAG response generation
+
+├─ requirements.txt       # Python dependencies
+
+├─ templates/
+
+│   └─ index.html         # Frontend HTML
+
+├─ static/
+
+│   ├─ style.css          # Frontend CSS
+
+│   └─ script.js          # Frontend JS
+
+└─ README.md

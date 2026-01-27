@@ -1,0 +1,112 @@
+body {
+    background: linear-gradient(to bottom, #e0eafc, #cfdef3);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.chat-container {
+    width: 1000px; /* increased width */
+    height: 600px;
+    max-width: 95%;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 30px; /* increased padding */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    text-align: center;
+    color: #004aad;
+    margin-bottom: 30px; /* more spacing */
+    font-weight: 700;
+    font-size: 30px; /* bigger title */
+}
+
+#chat-box {
+    flex: 1;
+    height: 550px; /* taller chat box */
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 20px; /* more padding inside */
+    background: #f9f9f9;
+    margin-bottom: 20px; /* more spacing */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 15px; /* bigger text */
+}
+
+.user, .bot {
+    max-width: 75%; /* wider message bubbles */
+    padding: 12px 18px; /* larger padding */
+    border-radius: 22px;
+    word-wrap: break-word;
+}
+
+.user {
+    align-self: flex-end;
+    background-color: #0066cc;
+    color: white;
+    border-bottom-right-radius: 0;
+}
+
+.bot {
+    align-self: flex-start;
+    background-color: #f0f0f0;
+    color: #333;
+    border-bottom-left-radius: 0;
+}
+
+.input-area {
+    display: flex;
+    gap: 30px; /* more space between input and button */
+}
+
+input {
+    flex: 1;
+    padding: 15px 20px; /* bigger input */
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    font-size: 20px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #0066cc;
+    box-shadow: 0 0 5px rgba(0,102,204,0.5);
+}
+
+button {
+    padding: 15px 30px; /* bigger button */
+    border: none;
+    background: #0066cc;
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #004aad;
+}
+
+/* Spinning football animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.spinner {
+    display: inline-block;
+    animation: spin 1s linear infinite;
+    margin-right: 8px;
+}

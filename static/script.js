@@ -5,12 +5,15 @@ async function sendMessage() {
 
     const chatBox = document.getElementById("chat-box");
 
+
     // 1️⃣ Show user message
+
     chatBox.innerHTML += `<div class="user"><b>You:</b> ${message}</div>`;
     input.value = "";
     chatBox.scrollTop = chatBox.scrollHeight;
 
     // 2️⃣ Loading message
+
     const loadingDiv = document.createElement("div");
     loadingDiv.classList.add("bot", "loading");
     loadingDiv.innerHTML = `<span class="spinner">⚽</span> Loading...`;
@@ -19,6 +22,7 @@ async function sendMessage() {
 
     try {
         // 3️⃣ Send request
+
         const response = await fetch("/ask", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -28,6 +32,7 @@ async function sendMessage() {
         const data = await response.json();
 
         // 4️⃣ Replace loading with answer
+
         loadingDiv.innerHTML = `<b>Assistant:</b> ${data.answer}`;
         loadingDiv.classList.remove("loading");
     } catch (error) {
